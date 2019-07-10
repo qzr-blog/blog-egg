@@ -5,4 +5,9 @@ export default class Overview extends Service {
     console.log('asdf')
     return `hi,`
   }
+
+  public async newOverview() {
+    console.log('new')
+    return 'new'
+  }
 }

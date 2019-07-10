@@ -4,12 +4,10 @@
 import 'egg';
 import ExportHome from '../../../app/service/Home';
 import ExportOverview from '../../../app/service/Overview';
-import ExportTest from '../../../app/service/Test';
 
 declare module 'egg' {
   interface IService {
     home: ExportHome;
     overview: ExportOverview;
-    test: ExportTest;
   }
 }

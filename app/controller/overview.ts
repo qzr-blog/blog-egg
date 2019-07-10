@@ -5,4 +5,9 @@ export default class OverviewController extends Controller {
     const { ctx } = this
     ctx.body = await ctx.service.overview.getOverview()
   }
+
+  public async new() {
+    const { ctx } = this
+    ctx.body = await ctx.service.overview.newOverview()
+  }
 }
