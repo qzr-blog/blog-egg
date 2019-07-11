@@ -20,7 +20,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "inlineSourceMap": true,
-    "importHelpers": true
+    "importHelpers": true,
+    "baseUrl": "./app", // 解析非相对模块名的基准目录 
+    "paths": {
+      "*": ["types/*"],
+      "@/*": ["app/*"],
+      "common/*": ["common/*"],
+    }, // 指定特殊模块的路径
   },
   "exclude": [
     "app/public",

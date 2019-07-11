@@ -3,11 +3,13 @@
 
 import 'egg';
 import ExportHome from '../../../app/service/Home';
+import ExportInfo from '../../../app/service/Info';
 import ExportOverview from '../../../app/service/Overview';
 
 declare module 'egg' {
   interface IService {
     home: ExportHome;
+    info: ExportInfo;
     overview: ExportOverview;
   }
 }
