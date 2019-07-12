@@ -4,5 +4,7 @@ export default (app: Application) => {
   const { controller, router } = app
 
   router.resources('getOverview', '/api/overview', controller.overview)
+
   router.resources('getInfo', '/api/info', controller.info)
+  router.resources('createInfo', '/api/createInfo', controller.info)
 }

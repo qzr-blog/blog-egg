@@ -7,4 +7,10 @@ export default class InfoController extends Controller {
     ctx.body = res
     ctx.status = 200
   }
+
+  public async create() {
+    const {ctx} = this
+    ctx.body = await ctx.service.info.createInfo(ctx.request.body)
+    ctx.status = 200
+  }
 }
