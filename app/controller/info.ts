@@ -1,3 +1,6 @@
+/**
+ * 文章内容相关接口
+ */
 import { Controller } from 'egg'
 
 export default class InfoController extends Controller {
@@ -13,4 +16,9 @@ export default class InfoController extends Controller {
     ctx.body = await ctx.service.info.createInfo(ctx.request.body)
     ctx.status = 200
   }
+
+  // public async show() {
+  //   const {ctx} = this
+  //   ctx.body = await ctx.service.info.showInfo(ctx.request.body)
+  // }
 }
