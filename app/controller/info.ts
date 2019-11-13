@@ -17,6 +17,12 @@ export default class InfoController extends Controller {
     ctx.status = 200
   }
 
+  public async update() {
+    const {ctx} = this
+    ctx.body = await ctx.service.info.updateInfo(ctx.request.body)
+    ctx.status = 200
+  }
+
   // public async show() {
   //   const {ctx} = this
   //   ctx.body = await ctx.service.info.showInfo(ctx.request.body)

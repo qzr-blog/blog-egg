@@ -3,8 +3,9 @@ import { Application } from 'egg'
 export default (app: Application) => {
   const { controller, router } = app
 
-  router.resources('getOverview', '/api/overview', controller.overview)
+  //首页内容
+  router.resources('overview', '/api/overview', controller.overview)
 
-  router.resources('getInfo', '/api/info', controller.info)
-  router.resources('createInfo', '/api/createInfo', controller.info)
+  //文章详情
+  router.resources('info', '/api/info', controller.info)
 }

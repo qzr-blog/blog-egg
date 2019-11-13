@@ -16,6 +16,10 @@ export default class Info extends Service {
     }
   }
 
+  public async updateInfo(data: any) {
+    console.log(data)
+  }
+
   // public async showInfo(data) {
   //   await this.ctx.model.Info.find()
   // }
