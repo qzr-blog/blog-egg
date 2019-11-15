@@ -1,9 +1,11 @@
 import { Service } from 'egg'
 
 export default class Info extends Service {
-  public async getInfo() {
+  public async getInfo(data: any) {
+    const result: any = await this.ctx.model.Info.find({title: "test"}).exec()
+    console.log(data)
     return {
-      data: '',
+      data: result,
       msg: 'ok'
     }
   }

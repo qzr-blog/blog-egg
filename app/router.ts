@@ -6,6 +6,6 @@ export default (app: Application) => {
   //首页内容
   router.resources('overview', '/api/overview', controller.overview)
 
-  //文章详情
+  //文章相关
   router.resources('info', '/api/info', controller.info)
 }
