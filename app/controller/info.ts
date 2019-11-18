@@ -13,6 +13,7 @@ export default class InfoController extends Controller {
 
   public async create() {
     const {ctx} = this
+    console.log('in')
     ctx.body = await ctx.service.info.createInfo(ctx.request.body)
     ctx.status = 200
   }
@@ -23,8 +24,9 @@ export default class InfoController extends Controller {
     ctx.status = 200
   }
 
-  // public async show() {
-  //   const {ctx} = this
-  //   ctx.body = await ctx.service.info.showInfo(ctx.request.body)
-  // }
+  public async destroy() {
+    const {ctx} = this
+    ctx.body = await ctx.service.info.delete(ctx.request.url)
+    ctx.status = 200
+  }
 }

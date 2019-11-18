@@ -1,24 +1,25 @@
 import { Service } from 'egg'
+const moment = require('moment')
+// import moment from 'moment'
 
 export default class Overview extends Service {
   public async getOverview() {
+    let result = await this.ctx.model.Info.find()
+    let data: object[] = []
+
+    for (const item of result) {
+      data.push({
+        title: item.title,
+        time: moment(item.created).format('YYYY-MM-DD HH:mm:ss'),
+        // time: moment(item.time).slice(0, 10),
+        img: "/public/img/portrait.jpg",
+        content: item.content,
+        id: item._id
+      })
+    }
     return {
-      "data": [{
-          "title": "首页",
-          "time": '2019-06-18',
-          "content": "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
-          "img": "/public/img/portrait.jpg",
-          "id": 1
-        },
-        {
-          "title": "首页2",
-          "time": '2019-06-18',
-          "content": "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
-          "img": "/assets/img/portrait.jpg",
-          "id": 2
-        }
-      ],
-      "msg": "ok"
+      data,
+      msg: "ok"
     }
   }
 

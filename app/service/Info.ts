@@ -2,7 +2,7 @@ import { Service } from 'egg'
 
 export default class Info extends Service {
   public async getInfo(data: any) {
-    const result: any = await this.ctx.model.Info.find({title: "test"}).exec()
+    const result: any = await this.ctx.model.Info.find({ title: 'test' }).exec()
     console.log(data)
     return {
       data: result,
@@ -12,7 +12,10 @@ export default class Info extends Service {
 
   public async createInfo(data: any) {
     console.log(data)
-    await this.ctx.model.Info.create({ title: 'test', content: data.content })
+    await this.ctx.model.Info.create({
+      title: data.title,
+      content: data.content
+    })
     return {
       msg: 'ok'
     }
@@ -22,7 +25,13 @@ export default class Info extends Service {
     console.log(data)
   }
 
-  // public async showInfo(data) {
-  //   await this.ctx.model.Info.find()
-  // }
+  public async delete(data: any) {
+    let dataArr = data.split('/')
+    await this.ctx.model.Info.remove({
+      _id: dataArr[dataArr.length - 1]
+    })
+    return {
+      msg: 'ok'
+    }
+  }
 }
