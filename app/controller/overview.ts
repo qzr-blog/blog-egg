@@ -7,9 +7,4 @@ export default class OverviewController extends Controller {
     ctx.body = res
     ctx.status = 200
   }
-
-  // public async new() {
-  //   const { ctx } = this
-  //   ctx.body = await ctx.service.overview.newOverview()
-  // }
 }

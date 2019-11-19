@@ -11,8 +11,7 @@ export default class Overview extends Service {
       data.push({
         title: item.title,
         time: moment(item.created).format('YYYY-MM-DD HH:mm:ss'),
-        // time: moment(item.time).slice(0, 10),
-        img: "/public/img/portrait.jpg",
+        text: item.text,
         content: item.content,
         id: item._id
       })

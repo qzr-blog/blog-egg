@@ -2,8 +2,7 @@ import { Service } from 'egg'
 
 export default class Info extends Service {
   public async getInfo(data: any) {
-    const result: any = await this.ctx.model.Info.find({ title: 'test' }).exec()
-    console.log(data)
+    const result: any = await this.ctx.model.Info.find({ _id: data.id }).exec()
     return {
       data: result,
       msg: 'ok'
@@ -11,10 +10,10 @@ export default class Info extends Service {
   }
 
   public async createInfo(data: any) {
-    console.log(data)
     await this.ctx.model.Info.create({
       title: data.title,
-      content: data.content
+      content: data.content,
+      text: data.text
     })
     return {
       msg: 'ok'

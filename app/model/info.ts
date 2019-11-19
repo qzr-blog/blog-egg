@@ -5,8 +5,8 @@ module.exports = app => {
   const InfoSchema = new Schema(
     {
       title: { type: String },
-      content: { type: String }
-      // time: { type: Date, default: Date.now },
+      content: { type: String },
+      text: { type: String }
     },
     {
       timestamps: {
