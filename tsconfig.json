@@ -25,7 +25,7 @@
     "paths": {
       "*": ["types/*"],
       "@/*": ["app/*"],
-      "common/*": ["common/*"],
+      "common/*": ["common/*"]
     }, // 指定特殊模块的路径
   },
   "exclude": [

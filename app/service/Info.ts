@@ -1,8 +1,9 @@
 import { Service } from 'egg'
+import info from '../types/info'
 
 export default class Info extends Service {
   public async getInfo(data: any) {
-    const result: any = await this.ctx.model.Info.find({ _id: data.id }).exec()
+    const result: info = await this.ctx.model.Info.findOne({ _id: data.id }).exec()
     return {
       data: result,
       msg: 'ok'
@@ -21,7 +22,11 @@ export default class Info extends Service {
   }
 
   public async updateInfo(data: any) {
-    console.log(data)
+    await this.ctx.model.Info.update({_id: data.id}, data)
+
+    return {
+      msg: 'ok'
+    }
   }
 
   public async delete(data: any) {
