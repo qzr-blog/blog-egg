@@ -2,13 +2,13 @@
 // Do not modify this file!!!!!!!!!
 
 import 'egg';
-import ExportHome from '../../../app/service/Home';
+import ExportBasic from '../../../app/service/Basic';
 import ExportInfo from '../../../app/service/Info';
 import ExportOverview from '../../../app/service/Overview';
 
 declare module 'egg' {
   interface IService {
-    home: ExportHome;
+    basic: ExportBasic;
     info: ExportInfo;
     overview: ExportOverview;
   }

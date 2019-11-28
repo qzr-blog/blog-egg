@@ -21,9 +21,4 @@ export default class Overview extends Service {
       msg: "ok"
     }
   }
-
-  public async newOverview() {
-    console.log('new')
-    return 'new'
-  }
 }
