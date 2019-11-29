@@ -1,41 +1,51 @@
 import { Service } from 'egg'
-import info from '../types/info'
+// import info from '../types/info'
 
 export default class Info extends Service {
-  public async getInfo(data: any) {
-    const result: info = await this.ctx.model.Info.findOne({ _id: data.id }).exec()
-    return {
-      data: result,
-      msg: 'ok'
-    }
+  /**
+   * 获取文章详情
+   * @param data 
+   */
+  public async getInfo(data: infoP) {
+    return await this.ctx.model.Info.findOne({ _id: data.id }).exec()
   }
 
-  public async createInfo(data: any) {
-    await this.ctx.model.Info.create({
+  /**
+   * 新增文章
+   * @param data 
+   */
+  public async createInfo(data: infoP) {
+    return await this.ctx.model.Info.create({
       title: data.title,
       content: data.content,
       text: data.text
     })
-    return {
-      msg: 'ok'
-    }
   }
 
-  public async updateInfo(data: any) {
-    await this.ctx.model.Info.update({_id: data.id}, data)
-
-    return {
-      msg: 'ok'
-    }
+  /**
+   * 更新文章
+   * @param data 
+   */
+  public async updateInfo(data: infoP) {
+    return await this.ctx.model.Info.update({_id: data.id}, data)
   }
 
-  public async delete(data: any) {
+  /**
+   * 删除文章
+   * @param data 
+   */
+  public async delete(data: string) {
     let dataArr = data.split('/')
-    await this.ctx.model.Info.remove({
+    return await this.ctx.model.Info.remove({
       _id: dataArr[dataArr.length - 1]
     })
-    return {
-      msg: 'ok'
-    }
+     
   }
+}
+
+interface infoP {
+  id?: string,
+  title?: string,
+  content?: string,
+  text?: string
 }

@@ -8,12 +8,7 @@ export default class Basic extends Service {
     console.log(name, password)
     const token = uuid.v4()
     this.ctx.session.token = token
-    return {
-      data: {
-        token
-      },
-      msg: 'ok'
-    }
+    return token
   }
 
   public async getUserInfo({token}: {token: string}) {
@@ -22,13 +17,14 @@ export default class Basic extends Service {
   }
 
   public async signUp({name, password}: signP) {
-    await this.ctx.model.User.create({
+    return await this.ctx.model.User.create({
       name,
       password
     })
-    return {
-      msg: 'ok'
-    }
+  }
+
+  public async getAllUser() {
+    return await this.ctx.model.User.find()
   }
 }
 

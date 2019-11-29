@@ -6,27 +6,29 @@ import { Controller } from 'egg'
 export default class InfoController extends Controller {
   public async index() {
     const { ctx } = this
-    const res = await ctx.service.info.getInfo(ctx.query)
-    ctx.body = res
-    ctx.status = 200
+    const data = await ctx.service.info.getInfo(ctx.query)
+
+    ctx.helper.success({ ctx, data })
   }
 
   public async create() {
-    const {ctx} = this
-    console.log('in')
-    ctx.body = await ctx.service.info.createInfo(ctx.request.body)
-    ctx.status = 200
+    const { ctx } = this
+    const data = await ctx.service.info.createInfo(ctx.request.body)
+
+    ctx.helper.success({ ctx, data })
   }
 
   public async update() {
-    const {ctx} = this
-    ctx.body = await ctx.service.info.updateInfo(ctx.request.body)
-    ctx.status = 200
+    const { ctx } = this
+    const data = await ctx.service.info.updateInfo(ctx.request.body)
+
+    ctx.helper.success({ ctx, data })
   }
 
   public async destroy() {
-    const {ctx} = this
-    ctx.body = await ctx.service.info.delete(ctx.request.url)
-    ctx.status = 200
+    const { ctx } = this
+    const data = await ctx.service.info.delete(ctx.request.url)
+
+    ctx.helper.success({ ctx, data })
   }
 }

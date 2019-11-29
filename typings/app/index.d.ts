@@ -4,5 +4,3 @@
 import 'egg';
 export * from 'egg';
 export as namespace Egg;
-
-declare var uuid: any

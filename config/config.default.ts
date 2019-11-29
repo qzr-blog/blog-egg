@@ -15,7 +15,7 @@ export default (appInfo: EggAppInfo) => {
   }
 
   // add your egg config in here
-  config.middleware = []
+  config.middleware = ["errorHandler"]
 
   config.mongoose = {
     url: 'mongodb://127.0.0.1/blog',

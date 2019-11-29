@@ -16,9 +16,6 @@ export default class Overview extends Service {
         id: item._id
       })
     }
-    return {
-      data,
-      msg: "ok"
-    }
+    return data
   }
 }
