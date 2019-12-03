@@ -5,7 +5,7 @@ export default {
    * @param data
    * @param msg
    */
-  success({ctx, data = null, msg = 'ok'}) {
+  success({ctx, data = null, msg = 'ok'}: any) {
     ctx.body = {
       msg,
       data,

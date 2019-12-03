@@ -27,8 +27,8 @@ export default class InfoController extends Controller {
 
   public async destroy() {
     const { ctx } = this
-    const data = await ctx.service.info.delete(ctx.request.url)
+    await ctx.service.info.delete(ctx.request.url)
 
-    ctx.helper.success({ ctx, data })
+    ctx.helper.success({ ctx })
   }
 }

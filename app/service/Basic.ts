@@ -6,7 +6,13 @@ const uuid = require('uuid');
 export default class Basic extends Service {
   public async login({ name, password }: signP) {
     console.log(name, password)
-    const token = uuid.v4()
+    // const token = uuid.v4()
+    const token = app.jwt.sign({
+    
+      username: data.username, //需要存储的 token 数据
+      //......
+      
+     }, app.config.jwt.secret);
     this.ctx.session.token = token
     return token
   }

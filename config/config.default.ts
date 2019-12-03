@@ -14,6 +14,10 @@ export default (appInfo: EggAppInfo) => {
     }
   }
 
+  config.jwt = {
+    secret: "123456"//自定义 token 的加密条件字符串
+  }
+
   // add your egg config in here
   config.middleware = ["errorHandler"]
 
