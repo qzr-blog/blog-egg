@@ -3,28 +3,28 @@ import { Controller } from 'egg'
 export default class BasicController extends Controller {
   public async login() {
     const { ctx } = this
-    const data = await ctx.service.Basic.login(ctx.request.body)
+    const data = await ctx.service.basic.login(ctx.request.body)
     
     ctx.helper.success({ctx, data})
   }
 
   public async getUserInfo() {
     const { ctx } = this
-    const data = await ctx.service.Basic.getUserInfo(ctx.request.body)
+    const data = await ctx.service.basic.getUserInfo(ctx.request.body)
     
     ctx.helper.success({ctx, data})
   }
 
   public async getAllUser() {
     const {ctx} = this
-    const data = await ctx.service.Basic.getAllUser()
+    const data = await ctx.service.basic.getAllUser()
 
     ctx.helper.success({ctx, data})
   }
 
   public async signUp() {
     const {ctx} = this
-    const data = await ctx.service.Basic.signUp(ctx.request.body)
+    const data = await ctx.service.basic.signUp(ctx.request.body)
     
     ctx.helper.success({ctx, data})
   }

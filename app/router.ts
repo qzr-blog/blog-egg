@@ -1,13 +1,13 @@
 import { Application } from 'egg'
 
 export default (app: Application) => {
-  const { controller, router } = app
+  const { controller, router, jwt } = app
   
   //登录相关
   router.post('/api/login', controller.basic.login)
   router.post('/api/getUserInfo', controller.basic.getUserInfo)
   router.post('/api/signUp', controller.basic.signUp)
-  router.get('/api/getAllUser', controller.basic.getAllUser)
+  router.get('/api/getAllUser', jwt, controller.basic.getAllUser)
 
   //首页内容
   router.get('/api/overview', controller.overview.index)

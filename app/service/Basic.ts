@@ -1,20 +1,18 @@
 import { Service } from 'egg'
-// import uuid from 'uuid'
-const uuid = require('uuid');
+// const uuid = require('uuid');
 
 
 export default class Basic extends Service {
   public async login({ name, password }: signP) {
     console.log(name, password)
+    const {app, ctx} = this
     // const token = uuid.v4()
     const token = app.jwt.sign({
-    
-      username: data.username, //需要存储的 token 数据
-      //......
-      
+      name, //需要存储的 token 数据
+      password
      }, app.config.jwt.secret);
-    this.ctx.session.token = token
-    return token
+    ctx.session.token = token
+    return {token}
   }
 
   public async getUserInfo({token}: {token: string}) {
@@ -23,6 +21,10 @@ export default class Basic extends Service {
   }
 
   public async signUp({name, password}: signP) {
+    const repet = await this.ctx.model.User.findOne({name})
+
+    if(repet) this.ctx.throw(401, '用户名重复');
+
     return await this.ctx.model.User.create({
       name,
       password
