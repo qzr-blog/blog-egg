@@ -8,6 +8,7 @@ export default (app: Application) => {
   router.post('/api/getUserInfo', controller.basic.getUserInfo)
   router.post('/api/signUp', controller.basic.signUp)
   router.get('/api/getAllUser', jwt, controller.basic.getAllUser)
+  router.post('/api/delUser', controller.basic.delUser)
 
   //首页内容
   router.get('/api/overview', controller.overview.index)
