@@ -31,4 +31,12 @@ export default class InfoController extends Controller {
 
     ctx.helper.success({ ctx })
   }
+
+  public async uploadImg() {
+    const { ctx } = this
+    const data = await ctx.service.info.uploadImg()
+    console.log(data)
+
+    ctx.helper.success({ ctx, data })
+  }
 }

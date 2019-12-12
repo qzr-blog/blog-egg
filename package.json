@@ -23,6 +23,7 @@
     "db": "mongod --dbpath C:data/db"
   },
   "dependencies": {
+    "await-stream-ready": "^1.0.1",
     "egg": "^2.6.1",
     "egg-jwt": "^3.1.7",
     "egg-mongoose": "^3.2.0",

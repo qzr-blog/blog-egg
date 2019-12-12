@@ -14,6 +14,12 @@ export default (appInfo: EggAppInfo) => {
     }
   }
 
+  config.multipart = {
+    fileSize: '50mb',
+    mode: 'stream',
+    fileExtensions: ['.xls', '.txt'], // 扩展几种上传的文件格式
+  }
+
   config.jwt = {
     secret: "123456"//自定义 token 的加密条件字符串
   }
