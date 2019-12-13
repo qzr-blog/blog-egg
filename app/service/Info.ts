@@ -1,8 +1,8 @@
 import { Service } from 'egg'
-import path = require('path');
-import fs = require('fs');
-import sendToWormhole = require('stream-wormhole');
-import awaitStreamReady from 'await-stream-ready'
+import path = require('path')
+import fs = require('fs')
+const sendToWormhole = require('stream-wormhole')
+const awaitStreamReady = require('await-stream-ready')
 // import info from '../types/info'
 
 export default class Info extends Service {
@@ -48,19 +48,18 @@ export default class Info extends Service {
   public async uploadImg() {
     const { ctx } = this,
       stream = await ctx.getFileStream(),
-      filepath = `image/${path.basename(stream.filename)}`,
-      accessPath = 'http://localhost:8081/' + filepath,
+      filepath = `app/public/upload/${path.basename(stream.filename)}`,
+      accessPath = 'http://127.0.0.1:7001' + `/public/upload/${path.basename(stream.filename)}`,
+      // accessPath = path.resolve(__dirname + '../../' + filepath),
       write = fs.createWriteStream(filepath)
     try {
-      await awaitStreamReady(stream.pipe(write))
+      await awaitStreamReady.write(stream.pipe(write))
     } catch (err) {
       sendToWormhole(stream)
-      throw(err)
+      throw err
     }
-
-    write.on('finish', () => {
-      return accessPath
-    })
+    console.log(accessPath)
+    return accessPath
   }
 }
 
