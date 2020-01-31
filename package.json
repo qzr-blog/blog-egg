@@ -20,7 +20,8 @@
     "autod": "autod",
     "lint": "tslint --project . -c tslint.json",
     "clean": "ets clean",
-    "db": "mongod --dbpath C:data/db"
+    "db": "mongod --dbpath C:data/db",
+    "homeDb": "mongod --dbpath \"D:\\MongoDB\\data\\db\""
   },
   "dependencies": {
     "await-stream-ready": "^1.0.1",
