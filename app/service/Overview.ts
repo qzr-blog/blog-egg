@@ -8,17 +8,17 @@ export default class Overview extends Service {
     let data: object[] = []
     
     for (const item of result) {
-      //todu: 正则匹配
+      // 正则匹配封面图
       const regex = /(?<=\!\[.*\]\()(.+)(?=\))/
       const img: any = regex.exec(item.content)
-      console.log(img)
+      const text: string = item.text.slice(0, 50) + '......'
       data.push({
         title: item.title,
         time: moment(item.created).format('YYYY-MM-DD HH:mm:ss'),
-        text: item.text,
-        content: item.content,
+        text,
+        // content: item.content,
         id: item._id,
-        // img: img[0]
+        img: img[0]
       })
     }
     return data

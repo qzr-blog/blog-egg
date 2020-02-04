@@ -16,4 +16,7 @@ export default (app: Application) => {
   //文章相关
   router.resources('info', '/api/info', controller.info)
   router.post('/api/info/uploadImg', controller.info.uploadImg)
+
+  //归档
+  router.get('/api/archives', controller.archives.index)
 }
