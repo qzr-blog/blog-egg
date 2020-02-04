@@ -30,9 +30,12 @@ export default class Basic extends Service {
 
   /**
    * 注册功能
+   * @param sign 0停止 1开放
    */
-  public async signUp({name, password}: signP) {
-    this.ctx.throw(401, '停止注册') //todo: 停止注册
+  public async signUp({name, password}: signP, sign: number) {
+    if(sign == 0) {
+      this.ctx.throw(401, '停止注册') //todo: 停止注册
+    }
     const repet = await this.ctx.model.User.findOne({name})
 
     if(repet) this.ctx.throw(401, '用户名重复');
