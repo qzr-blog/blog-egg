@@ -24,7 +24,7 @@ export default class BasicController extends Controller {
 
   public async signUp() {
     const {ctx} = this
-    const data = await ctx.service.basic.signUp(ctx.request.body, 0)
+    const data = await ctx.service.basic.signUp(ctx.request.body, 1)
     
     ctx.helper.success({ctx, data})
   }

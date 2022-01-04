@@ -21,7 +21,10 @@
     "lint": "tslint --project . -c tslint.json",
     "clean": "ets clean",
     "db": "mongod --dbpath C:data/db",
-    "homeDb": "mongod --dbpath \"D:\\MongoDB\\data\\db\""
+    "homeDb": "mongod --dbpath \"D:\\MongoDB\\data\\db\"",
+    "release:push": "docker push constq/page-blog:back-v0",
+    "release:image": "docker build -t constq/page-blog:back-v0 .",
+    "release": "yarn release:image && yarn release:push"
   },
   "dependencies": {
     "await-stream-ready": "^1.0.1",

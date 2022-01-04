@@ -28,8 +28,13 @@ export default (appInfo: EggAppInfo) => {
   config.middleware = ["errorHandler"]
 
   config.mongoose = {
-    url: 'mongodb://127.0.0.1/blog',
-    options: {}
+    // url: 'mongodb://localhost:27017/blog',
+    url: 'mongodb://pageMongoV0:27017/blog',
+    // url: 'mongodb://pageMongoV0:27017/blog?authSource=admin',
+    options: {
+      // "user": 'qzr',
+      // "pass": '888888'
+    }
   }
 
   // add your special config in here

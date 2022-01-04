@@ -10,7 +10,7 @@ export default class Overview extends Service {
     for (const item of result) {
       // 正则匹配封面图
       const regex = /(?<=\!\[.*\]\()(.+)(?=\))/
-      const img: any = regex.exec(item.content)
+      const img: any = regex.exec(item.content) ?? []
       const text: string = item.text.slice(0, 50) + '......'
       data.push({
         title: item.title,
